@@ -36,7 +36,7 @@ void add_malloc_region(void* addr, size_t length) {
 // Remove a malloc region from the list
 int remove_malloc_region(void* addr) {
     pthread_mutex_lock(&malloc_regions_mutex);
-    MallocRegion** current = &malloc_regions;
+    MallocRegion* current = malloc_regions;
     MallocRegion* prev = NULL;
 
     while (current) {
