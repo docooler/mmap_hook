@@ -9,5 +9,7 @@ or
 try to access hw address 0xf0000
 
 about hook dlsym
+https://blog.csdn.net/m0_72410588/article/details/132774502
 https://blog.csdn.net/thesre/article/details/120189868
+https://blog.csdn.net/mijichui2153/article/details/109561978
 https://optumsoft.com/dangers-of-using-dlsym-with-rtld_next/
