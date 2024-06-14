@@ -37,16 +37,23 @@ void add_malloc_region(void* addr, size_t length) {
 int remove_malloc_region(void* addr) {
     pthread_mutex_lock(&malloc_regions_mutex);
     MallocRegion** current = &malloc_regions;
-    while (*current) {
-        if ((*current)->addr == addr) {
-            MallocRegion* to_free = *current;
-            *current = (*current)->next;
-            free(to_free);
+    MallocRegion* prev = NULL;
+
+    while (current) {
+        if (current->addr == addr) {
+            if (prev) {
+                prev->next = current->next;
+            } else {
+                malloc_regions = current->next;
+            }
+            free(current);
             pthread_mutex_unlock(&malloc_regions_mutex);
             return 1;
         }
-        current = &(*current)->next;
+        prev = current;
+        current = current->next;
     }
+
     pthread_mutex_unlock(&malloc_regions_mutex);
     return 0;
 }
