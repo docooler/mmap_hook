@@ -1,0 +1,8 @@
+test 
+make run
+
+or
+
+./my_redirect devmem2 0xf0000
+
+try to access hw address 0xf0000
