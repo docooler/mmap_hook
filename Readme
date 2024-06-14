@@ -7,3 +7,7 @@ or
 ./my_redirect devmem2 0xf0000
 
 try to access hw address 0xf0000
+
+about hook dlsym
+https://blog.csdn.net/thesre/article/details/120189868
+https://optumsoft.com/dangers-of-using-dlsym-with-rtld_next/
